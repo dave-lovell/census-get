@@ -1,0 +1,41 @@
+---
+title: "Getting E&W Census Data"
+author: "Dave"
+format: html
+editor: visual
+---
+
+```{r libs}
+library(nomisr)
+```
+
+## Load data with nomisr
+
+### Load religion data
+
+```{r loadrReligionData}
+rel_data <- nomis_get_data("NM_2049_1", geography = "TYPE151")
+dir.create("data")
+saveRDS(rel_data, "data/england-wales-religion_2021.RDS")
+rm(rel_data)
+```
+
+### Load ethnicity data
+
+```{r loadEthnicityData}
+ethn_data <- nomis_get_data("NM_2041_1", geography = "TYPE151")
+beepr::beep()
+saveRDS(ethn_data, "data/england-wales-ethnicity_2021.RDS")
+beepr::beep()
+rm(ethn_data)
+```
+
+### Load Household data
+
+```{r loadHouseholdData}
+house_data <- nomis_get_data("NM_2023_1", geography = "TYPE151")
+beepr::beep()
+saveRDS(house_data, "data/england-wales-ethnicity_2021.RDS")
+beepr::beep()
+rm(ethn_data)
+```
